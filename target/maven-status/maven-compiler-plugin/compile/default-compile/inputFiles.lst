@@ -1,0 +1,7 @@
+/home/internship/Projects/Bookmarks/src/main/java/ro/fortech/bookmarks/exceptions/UserNotFoundException.java
+/home/internship/Projects/Bookmarks/src/main/java/ro/fortech/bookmarks/entities/Bookmark.java
+/home/internship/Projects/Bookmarks/src/main/java/ro/fortech/bookmarks/entities/Account.java
+/home/internship/Projects/Bookmarks/src/main/java/ro/fortech/bookmarks/repo/BookmarkRepo.java
+/home/internship/Projects/Bookmarks/src/main/java/ro/fortech/bookmarks/repo/AccountRepo.java
+/home/internship/Projects/Bookmarks/src/main/java/ro/fortech/bookmarks/Application.java
+/home/internship/Projects/Bookmarks/src/main/java/ro/fortech/bookmarks/controller/BookmarkRESTController.java

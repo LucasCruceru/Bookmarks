@@ -1,0 +1,7 @@
+ro/fortech/bookmarks/repo/BookmarkRepo.class
+ro/fortech/bookmarks/entities/Bookmark.class
+ro/fortech/bookmarks/entities/Account.class
+ro/fortech/bookmarks/Application.class
+ro/fortech/bookmarks/exceptions/UserNotFoundException.class
+ro/fortech/bookmarks/controller/BookmarkRESTController.class
+ro/fortech/bookmarks/repo/AccountRepo.class
