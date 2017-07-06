@@ -1,4 +1,4 @@
-package ro.fortech.bookmarks;//Created by internship on 06.07.2017.
+package ro.fortech.bookmarks.exceptions;//Created by internship on 06.07.2017.
 
 
 import org.springframework.hateoas.VndErrors;
