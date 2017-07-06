@@ -25,6 +25,7 @@ public class Application {
     }
 
 
+
     @Bean
     CommandLineRunner init(AccountRepo aRepo,
                            BookmarkRepo bRepo){
