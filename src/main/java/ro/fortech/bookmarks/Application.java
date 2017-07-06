@@ -26,17 +26,16 @@ public class Application {
 
 
     @Bean
-    CommandLineRunner init(AccountRepo accountRepo,
-                           BookmarkRepo bookmarkRepo){
-        return(evt) -> Arrays.asList(
+    CommandLineRunner init(AccountRepo aRepo,
+                           BookmarkRepo bRepo){
+        return(args) -> Arrays.asList(
                 "jhoeller,dsyer,pwebb,ogierke,rwinch,mfisher,mpollack,jlong".split(","))
-                .forEach(
-                        a ->{
-                            Account account = accountRepo.save(new Account(a, "password"));
-                            bookmarkRepo.save(new Bookmark(account,
+                .forEach(a ->{
+                            Account account = aRepo.save(new Account(a, "password"));
+                            bRepo.save(new Bookmark(account,
                                     "http://bookmark.com/1/" + a, "A description"));
-                            bookmarkRepo.save(new Bookmark(account,
-                                    "http://bookmark.com/2/" + a, "A description"));});
-
+                            bRepo.save(new Bookmark(account,
+                                    "http://bookmark.com/2/" + a, "A description"));
+                });
     }
 }
