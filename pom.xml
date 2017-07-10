@@ -51,8 +51,22 @@
 			<artifactId>spring-hateoas</artifactId>
 			<version>0.19.0.RELEASE</version>
 		</dependency>
-	</dependencies>
 
+
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+		<version>4.2.0.RELEASE</version>
+	</dependency>
+
+
+	<dependency>
+		<groupId>org.springframework.security.oauth</groupId>
+		<artifactId>spring-security-oauth2</artifactId>
+		<version>2.1.1.RELEASE</version>
+	</dependency>
+
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
