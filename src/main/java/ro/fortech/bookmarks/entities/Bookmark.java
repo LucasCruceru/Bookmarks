@@ -45,5 +45,10 @@ public class Bookmark {
     public String getUri() {
         return uri;
     }
+
+    public void updateBookmark(Bookmark bm){
+        this.uri = bm.uri;
+        this.description= bm.description;
+    }
 }
 

@@ -144,14 +144,43 @@ public class BookmarkRESTControllerTest {
                     .andExpect(status().isCreated());
         }
 
-        protected String json(Object o) throws IOException {
+        @Test
+        public void deleteSingleBookmark() throws Exception {
+            mockMvc.perform(delete("/bookmarks/"
+                + this.bookmarkList.get(0).getId())
+                .principal(getPrinciple())
+                .header(auth,bearer))
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("content", hasSize(1)));
+        }
+
+        @Test
+        public void updateBookmark() throws Exception {
+
+        Bookmark temp = new Bookmark(this.account, "http://spring.io", "a bookmark to the best resource for Spring news and information");
+            this.bookmarkList.get(0).updateBookmark(temp);
+
+        String bookmarkJson = json(this.bookmarkList.get(0));
+
+        this.mockMvc.perform(put("/bookmarks/" + this.bookmarkList.get(0).getId())
+                .principal(getPrinciple())
+                .header(auth,bearer)
+                .contentType(contentType)
+                .content(bookmarkJson))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("uri", is("http://spring.io")))
+                .andExpect(jsonPath("description", is("a bookmark to the best resource for Spring news and information")))
+        ;
+        }
+
+        private String json(Object o) throws IOException {
             MockHttpOutputMessage mockHttpOutputMessage = new MockHttpOutputMessage();
             this.mappingJackson2HttpMessageConverter.write(
                     o, MediaType.APPLICATION_JSON, mockHttpOutputMessage);
             return mockHttpOutputMessage.getBodyAsString();
         }
 
-        public Principal getPrinciple() {
+        private Principal getPrinciple() {
             if (principal == null)
                 principal = new Principal() {
                     @Override

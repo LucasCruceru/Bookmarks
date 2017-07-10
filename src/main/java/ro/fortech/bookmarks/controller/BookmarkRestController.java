@@ -56,8 +56,6 @@ public class BookmarkRestController {
                     Link forOneBookmark = new BookmarkResource(result, principal)
                             .getLink(Link.REL_SELF);
 
-
-
                     return ResponseEntity.created(URI
                             .create(forOneBookmark.getHref()))
                             .build();
@@ -71,6 +69,24 @@ public class BookmarkRestController {
         this.validateUser(principal);
         return new BookmarkResource(
                 this.bRepo.findOne(bookmarkId), principal);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{bookmarkId}")
+    public Resources<BookmarkResource> deleteBookmark(Principal principal, @PathVariable Long bookmarkId) {
+        this.validateUser(principal);
+        bRepo.delete(bookmarkId);
+
+        return this.readBookmarks(principal);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/{bookmarkId}")
+    public Bookmark PUT(Principal principal, @PathVariable Long bookmarkId, @RequestBody Bookmark input) {
+        this.validateUser(principal);
+
+        this.bRepo.findOne(bookmarkId).updateBookmark(input);
+
+
+        return this.bRepo.findOne(bookmarkId);
     }
 
     private void validateUser(Principal principal) {
